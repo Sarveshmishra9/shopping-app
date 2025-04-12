@@ -1,4 +1,5 @@
-import mongoose from "mongoose";
+const mongoose = require("mongoose");
+// const bcrypt = require('bcryptjs');
 
 //schema
 const userSchema = new mongoose.Schema({
@@ -19,7 +20,7 @@ const userSchema = new mongoose.Schema({
     type: String,
   },
 
-  timestamps: true,
+  // timestamps: true,
 });
 
 //exporting

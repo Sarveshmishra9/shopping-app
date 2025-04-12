@@ -1,4 +1,6 @@
 import { Button } from "./components/ui/button";
+import SigninForm from "./components/signin-form";
+import SignupForm from "./components/signup-form";
 function App() {
 	return (
 		<>
@@ -6,6 +8,7 @@ function App() {
 				Hello world
 			</div>
 			<Button>Hello there! Click me</Button>
+			<SignupForm/>
 		</>
 	);
 }
