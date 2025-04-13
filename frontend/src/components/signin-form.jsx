@@ -9,9 +9,20 @@ export default function SigninForm() {
 	const registerRedirect = () => {
 		navigate("/auth/register");
 	};
-	const handleSubmit = (e) => {
+	const handleSubmit = async (e) => {
 		e.preventDefault();
 		console.log("Form submitted");
+		const res = await fetch("http://localhost:5000/api/users/login", {
+			method: "POST",
+			headers: { "Content-Type": "application/json" },
+			body: JSON.stringify({ email, password }),
+		  });
+		
+		  const data = await res.json();
+		  if (data.token) {
+			localStorage.setItem("token", data.token); // save token
+			navigate("/home"); // redirect to protected route
+		  }
 	};
 	return (
 		<div className="shadow-input mx-auto w-full max-w-md rounded-none bg-white p-4 md:rounded-2xl md:p-8 dark:bg-black">

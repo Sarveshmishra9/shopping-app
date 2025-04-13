@@ -1,10 +1,13 @@
-const express = require("express");
+const express = require('express');
 const router = express.Router();
-const User = require("../models/User");
+const { registerUser, loginUser, getUserData } = require('../controllers/userController');
+const authMiddleware = require('../middleware/authMiddleware');
 
-router.get("/", async (req, res) => {
-  const users = await User.find();
-  res.json(users);
-});
+// Register and Login routes
+router.post('/register', registerUser);
+router.post('/login', loginUser);
+
+// Protected route – Only accessible with a valid token
+router.get('/me', authMiddleware, getUserData);
 
 module.exports = router;
