@@ -3,26 +3,42 @@ import { Label } from "@/components/ui/label";
 import { cn } from "@/lib/utils";
 import { useNavigate } from "react-router";
 import { Button } from "./ui/button";
+import React, { useState } from 'react';
 
 export default function SigninForm() {
+	const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
 	let navigate = useNavigate();
+
 	const registerRedirect = () => {
 		navigate("/auth/register");
 	};
+
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		console.log("Form submitted");
-		const res = await fetch("http://localhost:5000/api/users/login", {
-			method: "POST",
-			headers: { "Content-Type": "application/json" },
-			body: JSON.stringify({ email, password }),
-		  });
-		
-		  const data = await res.json();
-		  if (data.token) {
-			localStorage.setItem("token", data.token); // save token
-			navigate("/home"); // redirect to protected route
-		  }
+		console.log("Form submitted", email, password);
+
+		try {
+			console.log("Sending login:", { email, password });
+
+			const res = await fetch("http://localhost:8080/api/users/login", {
+				method: "POST",
+				headers: { "Content-Type": "application/json" },
+				body: JSON.stringify({ email, password }),
+			});
+
+			const data = await res.json();
+			console.log('✅ Sign in successful!');
+			console.log('Received token:', data.token); // optional: log token
+
+			if (data.token) {
+				localStorage.setItem("token", data.token); // save token
+				navigate("/home"); // redirect to protected route
+			}
+		} catch (error) {
+			console.error('❌ Error logging in:', error.message);
+		}
 	};
 	return (
 		<div className="shadow-input mx-auto w-full max-w-md rounded-none bg-white p-4 md:rounded-2xl md:p-8 dark:bg-black">
@@ -35,11 +51,13 @@ export default function SigninForm() {
 			<form className="my-8" onSubmit={handleSubmit}>
 				<LabelInputContainer className="mb-4">
 					<Label htmlFor="email">Email Address</Label>
-					<Input id="email" placeholder="projectmayhem@fc.com" type="text" />
+					<Input id="email" placeholder="projectmayhem@fc.com" type="email" value={email}
+                      onChange={(e) => setEmail(e.target.value)} className="w-full p-2 rounded"/>
 				</LabelInputContainer>
 				<LabelInputContainer className="mb-4">
 					<Label htmlFor="password">Password</Label>
-					<Input id="password" placeholder="••••••••" type="text" />
+					<Input id="password" placeholder="••••••••" type="password"  value={password}
+           			 onChange={(e) => setPassword(e.target.value)}  className="w-full p-2 rounded" />
 				</LabelInputContainer>
 				<button
 					className="group/btn relative block h-10 w-full rounded-md bg-gradient-to-br from-black to-neutral-600 font-medium text-white shadow-[0px_1px_0px_0px_#ffffff40_inset,0px_-1px_0px_0px_#ffffff40_inset] dark:bg-zinc-800 dark:from-zinc-900 dark:to-zinc-900 dark:shadow-[0px_1px_0px_0px_#27272a_inset,0px_-1px_0px_0px_#27272a_inset]"

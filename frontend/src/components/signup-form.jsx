@@ -6,7 +6,7 @@ import { Button } from "./ui/button";
 import React, { useState } from 'react';
 export default function SignupForm() {
 
-	const [firstName, setFirstName] = useState('');
+  const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -60,12 +60,12 @@ export default function SignupForm() {
 				</div>
 				<LabelInputContainer className="mb-4">
 					<Label htmlFor="email">Email Address</Label>
-					<Input id="email" placeholder="projectmayhem@fc.com" type="text" value={email}
+					<Input id="email" placeholder="projectmayhem@fc.com" type="email" value={email}
                       onChange={(e) => setEmail(e.target.value)} />
 				</LabelInputContainer>
 				<LabelInputContainer className="mb-4">
 					<Label htmlFor="password">Password</Label>
-					<Input id="password" placeholder="••••••••" type="text"   value={password}
+					<Input id="password" placeholder="••••••••" type="password"   value={password}
                        onChange={(e) => setPassword(e.target.value)} />
 				</LabelInputContainer>
 				<button

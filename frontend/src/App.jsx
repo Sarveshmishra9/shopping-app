@@ -8,7 +8,7 @@ function App() {
 				Hello world
 			</div>
 			<Button>Hello there! Click me</Button>
-			<SignupForm/>
+			<SigninForm/>
 		</>
 	);
 }
