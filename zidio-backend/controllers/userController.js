@@ -16,6 +16,8 @@ exports.registerUser = async (req, res) => {
 
   const user = new User({ firstName, lastName, email, password: hashedPassword });
   await user.save();
+  console.log("Password from frontend:", password);
+console.log("Password from DB:", user.password);
 
 
   const token = generateToken(user);
@@ -26,16 +28,40 @@ exports.registerUser = async (req, res) => {
 // Login
 exports.loginUser = async (req, res) => {
   const { email, password } = req.body;     // Gets the login form data (email, password) from the frontend.
+  console.log("Login data received:", { email, password });
 
+try{  
 
-  const user = await User.findOne({ email });   
-  if (!user) return res.status(400).json({ message: 'User not found' });   //Finds a user with the given email. If not found → return error.
+  const user = await User.findOne({ email }).select("+password");   
+  if (!user) {
+    console.log("User not found");
+  return res.status(400).json({ message: "User not found" });  //Finds a user with the given email. If not found → return error.
+}   
+
+  console.log("User found:", user);
+
+  if (!password || typeof password !== "string") {
+    console.log("Invalid password received from frontend");
+    return res.status(400).json({ message: "Invalid input" });
+  }
 
   const isMatch = await bcrypt.compare(password, user.password);         // checks if entered password matches the hashed password in DB.
-  if (!isMatch) return res.status(400).json({ message: 'Invalid credentials' });
+  console.log("Password match result:", isMatch);
+  if (!isMatch) {
+    console.log("Password did not match");
+    return res.status(400).json({ message: "Invalid credentials" });
+  }
 
   const token = generateToken(user);   // If login is successful → create a new JWT token and send it to the frontend.
+  console.log("Login successful, token:", token); 
   res.json({ token });
+
+} catch (err) {
+  console.error("Login error:", err);
+  res.status(500).json({ message: "Server error" });
+}
+
+
 };
 
 // Get logged in user

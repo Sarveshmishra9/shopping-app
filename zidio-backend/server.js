@@ -38,9 +38,7 @@ app.use(express.json());
 //   useUnifiedTopology: true,  
 // }).then(() => console.log("MongoDB Connected")).catch(err => console.log(err));  
 
-app.listen  ( 8080 , () => {
-  console.log("server is listening")
-});
+
 
 app.get("/", (req, res) => {  
   res.send("Backend Running");  
