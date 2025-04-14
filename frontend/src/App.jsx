@@ -1,15 +1,12 @@
 import { Button } from "./components/ui/button";
-import SigninForm from "./components/signin-form";
-import SignupForm from "./components/signup-form";
+import { NavbarFloating } from "./components/floating-navbar";
+import { Outlet } from "react-router";
+import { DummyContent } from "./components/dummy-content";
 function App() {
-	return (
-		<>
-			<div className="bg-red-500 text-white text-bold underline">
-				Hello world
-			</div>
-			<Button>Hello there! Click me</Button>
-			<SigninForm/>
-		</>
-	);
+    return (
+        <div>
+            <NavbarFloating />
+        </div>
+    );
 }
 export default App;
