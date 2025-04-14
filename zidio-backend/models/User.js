@@ -7,7 +7,7 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  lastName : {
+  lastName: {
     type: String,
     required: true,
   },
@@ -23,11 +23,9 @@ const userSchema = new mongoose.Schema({
   },
   isAdmin: {
     type: Boolean,
-    default: false, //admin role  
+    default: false, //admin role
   },
-  address: {
-    type: String,
-  },
+  avatarUrl: { type: String, default: "" }, // Store avatar URL
 
   // timestamps: true,
 });
