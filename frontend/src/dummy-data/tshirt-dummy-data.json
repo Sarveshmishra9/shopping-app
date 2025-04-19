@@ -1,0 +1,202 @@
+[
+  {
+    "id": "201",
+    "name": "Explorer's Tee",
+    "description": "Ready for adventure? This tee is.",
+    "price": 2157,
+    "imageUrl": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?q=80&w=2080&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "altText": "Green t-shirt with adventure theme",
+    "colors": ["Olive Green", "Khaki"],
+    "sizes": ["S", "M", "L", "XL"]
+  },
+  {
+    "id": "202",
+    "name": "Code Ninja Tee",
+    "description": "Master of code, wearer of awesome tees.",
+    "price": 2074,
+    "imageUrl": "https://images.unsplash.com/photo-1618453292459-53424b66bb6a?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "altText": "Blue t-shirt with coding theme",
+    "colors": ["Steel Blue", "Black"],
+    "sizes": ["M", "L", "XL"]
+  },
+  {
+    "id": "203",
+    "name": "Coffee Lover's Tee",
+    "description": "Powered by coffee and code (or just coffee).",
+    "price": 1743,
+    "imageUrl": "https://images.unsplash.com/photo-1565884280295-98eb83e41c65?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDJ8fHxlbnwwfHx8fHw%3D",
+    "altText": "Brown t-shirt with coffee graphic",
+    "colors": ["Tan", "Dark Brown"],
+    "sizes": ["S", "M", "L"]
+  },
+  {
+    "id": "204",
+    "name": "Galaxy Print Tee",
+    "description": "Out of this world style.",
+    "price": 2489,
+    "imageUrl": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?q=80&w=2080&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "altText": "Purple t-shirt with galaxy print",
+    "colors": ["Deep Purple", "Navy"],
+    "sizes": ["M", "L", "XL"]
+  },
+  {
+    "id": "205",
+    "name": "Vintage Stripes Tee",
+    "description": "Classic look with a vintage feel.",
+    "price": 1868,
+    "imageUrl": "https://images.unsplash.com/photo-1618453292459-53424b66bb6a?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "altText": "Red t-shirt with stripes",
+    "colors": ["Red/White", "Blue/White"],
+    "sizes": ["S", "M", "L", "XL", "XXL"]
+  },
+  {
+    "id": "206",
+    "name": "Simply White Tee",
+    "description": "The ultimate versatile basic.",
+    "price": 1411,
+    "imageUrl": "https://images.unsplash.com/photo-1565884280295-98eb83e41c65?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDJ8fHxlbnwwfHx8fHw%3D",
+    "altText": "Plain white t-shirt",
+    "colors": ["White"],
+    "sizes": ["S", "M", "L", "XL", "XXL"]
+  },
+  {
+    "id": "207",
+    "name": "Midnight Black Tee",
+    "description": "Sleek and stylish black tee.",
+    "price": 17.00,
+    "imageUrl": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?q=80&w=2080&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "altText": "Plain black t-shirt",
+    "colors": ["Black"],
+    "sizes": ["S", "M", "L", "XL", "XXL"]
+  },
+  {
+    "id": "208",
+    "name": "Happy Camper Tee",
+    "description": "For those who love the outdoors.",
+    "price": 1909,
+    "imageUrl": "https://images.unsplash.com/photo-1618453292459-53424b66bb6a?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "altText": "Grey t-shirt with camping graphic",
+    "colors": ["Heather Grey", "Forest Green"],
+    "sizes": ["M", "L", "XL"]
+  },
+  {
+    "id": "209",
+    "name": "Music Notes Tee",
+    "description": "Wear your love for music.",
+    "price": 1826,
+    "imageUrl": "https://images.unsplash.com/photo-1565884280295-98eb83e41c65?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDJ8fHxlbnwwfHx8fHw%3D",
+    "altText": "Purple t-shirt with music notes",
+    "colors": ["Purple", "Black"],
+    "sizes": ["S", "M", "L"]
+  },
+  {
+    "id": "210",
+    "name": "Geometric Pattern Tee",
+    "description": "Modern design for a modern look.",
+    "price": 2199,
+    "imageUrl": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?q=80&w=2080&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "altText": "Blue t-shirt with geometric pattern",
+    "colors": ["Ocean Blue", "Grey"],
+    "sizes": ["S", "M", "L", "XL"]
+  },
+  {
+    "id": "211",
+    "name": "Sunset Vibes Tee",
+    "description": "Chasing sunsets and good vibes.",
+    "price": 1992,
+    "imageUrl": "https://images.unsplash.com/photo-1618453292459-53424b66bb6a?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "altText": "Orange t-shirt with sunset graphic",
+    "colors": ["Peach", "Orange"],
+    "sizes": ["S", "M", "L", "XL"]
+  },
+  {
+    "id": "212",
+    "name": "Mountain Peak Tee",
+    "description": "Reach new heights in style.",
+    "price": 2283,
+    "imageUrl": "https://images.unsplash.com/photo-1565884280295-98eb83e41c65?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDJ8fHxlbnwwfHx8fHw%3D",
+    "altText": "Blue t-shirt with mountain graphic",
+    "colors": ["Sky Blue", "Grey"],
+    "sizes": ["M", "L", "XL"]
+  },
+  {
+    "id": "213",
+    "name": "City Lights Tee",
+    "description": "Shine bright in the city.",
+    "price": 2117,
+    "imageUrl": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?q=80&w=2080&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "altText": "Black t-shirt with city lights",
+    "colors": ["Black", "Neon Green"],
+    "sizes": ["S", "M", "L"]
+  },
+  {
+    "id": "214",
+    "name": "Tropical Vibes Tee",
+    "description": "Bring the tropics wherever you go.",
+    "price": 1951,
+    "imageUrl": "https://images.unsplash.com/photo-1618453292459-53424b66bb6a?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "altText": "Green t-shirt with tropical print",
+    "colors": ["Lime Green", "White"],
+    "sizes": ["M", "L", "XL", "XXL"]
+  },
+  {
+    "id": "215",
+    "name": "Ocean Waves Tee",
+    "description": "Ride the waves in style.",
+    "price": 2158,
+    "imageUrl": "https://images.unsplash.com/photo-1565884280295-98eb83e41c65?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDJ8fHxlbnwwfHx8fHw%3D",
+    "altText": "Blue t-shirt with ocean waves",
+    "colors": ["Teal", "White"],
+    "sizes": ["S", "M", "L", "XL"]
+  },
+  {
+    "id": "216",
+    "name": "Retro Gaming Tee",
+    "description": "Level up your style with this retro tee.",
+    "price": 2324,
+    "imageUrl": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?q=80&w=2080&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "altText": "Black t-shirt with retro gaming graphic",
+    "colors": ["Black", "Neon Pink"],
+    "sizes": ["M", "L", "XL"]
+  },
+  {
+    "id": "217",
+    "name": "Space Exploration Tee",
+    "description": "Explore the universe in style.",
+    "price": 2407,
+    "imageUrl": "https://images.unsplash.com/photo-1618453292459-53424b66bb6a?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "altText": "Navy t-shirt with space exploration graphic",
+    "colors": ["Navy", "White"],
+    "sizes": ["S", "M", "L", "XL", "XXL"]
+  },
+  {
+    "id": "218",
+    "name": "Wildlife Conservation Tee",
+    "description": "Support wildlife conservation with this tee.",
+    "price": 22.00,
+    "imageUrl": "https://images.unsplash.com/photo-1565884280295-98eb83e41c65?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDJ8fHxlbnwwfHx8fHw%3D",
+    "altText": "Green t-shirt with wildlife graphic",
+    "colors": ["Forest Green", "Brown"],
+    "sizes": ["M", "L", "XL"]
+  },
+  {
+    "id": "219",
+    "name": "Abstract Art Tee",
+    "description": "Wearable art for a unique style.",
+    "price": 2490,
+    "imageUrl": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?q=80&w=2080&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "altText": "Multicolor t-shirt with abstract art",
+    "colors": ["Multicolor"],
+    "sizes": ["S", "M", "L"]
+  },
+  {
+    "id": "220",
+    "name": "Minimalist Design Tee",
+    "description": "Simple yet stylish design.",
+    "price": 21.00,
+    "imageUrl": "https://images.unsplash.com/photo-1618453292459-53424b66bb6a?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "altText": "Grey t-shirt with minimalist design",
+    "colors": ["Grey", "White"],
+    "sizes": ["S", "M", "L", "XL"]
+  }
+]

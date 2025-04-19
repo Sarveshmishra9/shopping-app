@@ -8,6 +8,7 @@ import SigninForm from "./components/signin-form.jsx";
 import "./index.css";
 import AuthPage from "./pages/auth-page.jsx";
 import { DummyContent } from "./components/dummy-content.jsx";
+import MenPage from "./pages/men-page.jsx";
 
 createRoot(document.getElementById("root")).render(
     <StrictMode>
@@ -20,9 +21,9 @@ createRoot(document.getElementById("root")).render(
                             <Route path="login" element={<SigninForm />} />
                             <Route path="register" element={<SignupForm />} />
                         </Route>
-                        <Route path="/Men" element={<DummyContent />} />
-                        <Route path="/Women" element={<DummyContent />} />
-                        <Route path="/Kids" element={<DummyContent />} />
+                        <Route path="/men" element={<MenPage />} />
+                        <Route path="/women" element={<DummyContent />} />
+                        <Route path="/kids" element={<DummyContent />} />
                     </Route>
                 </Routes>
             </BrowserRouter>

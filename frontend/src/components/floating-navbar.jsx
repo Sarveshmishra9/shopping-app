@@ -31,7 +31,7 @@ export function NavbarFloating() {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
     return (
-        <div className="relative h-[100vh] w-[100vw]">
+        <div className="relative">
             <Navbar>
                 {/* Desktop Navigation */}
                 <NavBody>
