@@ -16,15 +16,15 @@ export function NavbarFloating() {
     const navItems = [
         {
             name: "Men",
-            link: "/men",
+            link: "/category/men",
         },
         {
             name: "Women",
-            link: "/women",
+            link: "/category/women",
         },
         {
             name: "Kids",
-            link: "/kids",
+            link: "/category/kids",
         },
     ];
 

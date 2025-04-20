@@ -8,7 +8,11 @@ import SigninForm from "./components/signin-form.jsx";
 import "./index.css";
 import AuthPage from "./pages/auth-page.jsx";
 import { DummyContent } from "./components/dummy-content.jsx";
-import MenPage from "./pages/men-page.jsx";
+import CategoryPage from "./pages/category-page.jsx";
+import { MenCategorySection } from "./sections/men-category-section.jsx";
+import { WomenCategorySection } from "./sections/women-category-section.jsx";
+import { KidsCategorySection } from "./sections/kids-category-section.jsx";
+
 
 createRoot(document.getElementById("root")).render(
     <StrictMode>
@@ -21,9 +25,11 @@ createRoot(document.getElementById("root")).render(
                             <Route path="login" element={<SigninForm />} />
                             <Route path="register" element={<SignupForm />} />
                         </Route>
-                        <Route path="/men" element={<MenPage />} />
-                        <Route path="/women" element={<DummyContent />} />
-                        <Route path="/kids" element={<DummyContent />} />
+                        <Route path="category" element={<CategoryPage />}>
+                            <Route path="men" element={<MenCategorySection />} />
+                            <Route path="women" element={<WomenCategorySection />} />
+                            <Route path="kids" element={<KidsCategorySection />} />
+                        </Route>
                     </Route>
                 </Routes>
             </BrowserRouter>
