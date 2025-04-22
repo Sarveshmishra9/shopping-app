@@ -25,6 +25,7 @@ export default function SigninForm() {
                         const res = await fetch("http://localhost:8080/api/users/login", {
                                 method: "POST",
                                 headers: { "Content-Type": "application/json" },
+                                credentials: "include", // ✅ important for sending/receiving cookies
                                 body: JSON.stringify({ email, password }),
                         });
 
@@ -32,10 +33,12 @@ export default function SigninForm() {
                         console.log('✅ Sign in successful!');
                         console.log('Received token:', data.token); // optional: log token
 
-                        if (data.token) {
-                                localStorage.setItem("token", data.token); // save token
-                                navigate("/home"); // redirect to protected route
-                        }
+                        navigate("/category/men"); // or wherever you want to redirect after login
+                        
+                        // if (data.token) {
+                        //         localStorage.setItem("token", data.token); // save token
+                        //         navigate("/home"); // redirect to protected route
+                        // }
                 } catch (error) {
                         console.error('❌ Error logging in:', error.message);
                 }
@@ -61,7 +64,7 @@ export default function SigninForm() {
                                 </LabelInputContainer>
                                 <button
                                         className="group/btn relative block h-10 w-full rounded-md bg-gradient-to-br from-black to-neutral-600 font-medium text-white shadow-[0px_1px_0px_0px_#ffffff40_inset,0px_-1px_0px_0px_#ffffff40_inset] dark:bg-zinc-800 dark:from-zinc-900 dark:to-zinc-900 dark:shadow-[0px_1px_0px_0px_#27272a_inset,0px_-1px_0px_0px_#27272a_inset]"
-                                        type="submit"
+                                        type="submit"  onClick="/category/men"
                                 >
                                         Sign in &rarr;
                                         <BottomGradient />

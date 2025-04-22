@@ -5,9 +5,17 @@ const cors = require('cors');   // Allows frontend (React) to talk to backend
 const mongoose = require('mongoose');  
 const userRoutes = require("./routes/userRoutes");       
 const productRoutes = require("./routes/productRoutes");
+const cookieParser = require("cookie-parser");
 
-app.use(cors()); // Enable CORS for frontend-backend communication
-app.use(express.json()); // Parse incoming JSON requests
+
+app.use(express.json());   // Parse incoming JSON requests
+app.use(cookieParser()); // ✅ Parse cookies
+app.use(                 // Enable CORS for frontend-backend communication
+  cors({            
+    origin:"http://localhost:5173", // ✅ Your frontend URL
+    credentials: true,              // ✅ Allow cookies
+  })
+);
 
 // All user-related routes will start with /api/users
 app.use('/api/users', userRoutes);
@@ -26,11 +34,6 @@ async function main() {
 }
 
 // app.use("/api/products", productRoutes);
-
-
- 
-// app.use(cors());  
-app.use(express.json());  
 
 
 // mongoose.connect(process.env.MONGO_URI, {  

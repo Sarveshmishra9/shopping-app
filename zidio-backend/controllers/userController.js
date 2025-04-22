@@ -32,7 +32,7 @@ const generateToken = (user) => {
       role: user.role,
     },
     "secret123",
-    { expiresIn: "1d" }
+    { expiresIn: "7d" }
   );
   //   jwt.sign() creates a token using the user's ID and your secret key.
 };
@@ -62,7 +62,14 @@ exports.registerUser = async (req, res) => {
 
   const token = generateToken(user);
 
-  res.status(201).json({ token }); // Sends the token back to the frontend.
+  res.cookie("token", token, {
+    httpOnly: true,
+    secure: false, // true in production
+    sameSite: "Lax",
+    maxAge: 24 * 60 * 60 * 1000, // 1 day
+  });
+
+  res.status(201).json({ message: "User registered successfully" });
 };
 
 // Login
@@ -98,7 +105,20 @@ exports.loginUser = async (req, res) => {
     console.error("Login error:", err);
     res.status(500).json({ message: "Server error" });
   }
+
+  res.cookie("token", token, {
+    httpOnly: true,
+    secure: false, // true in production
+    sameSite: "Lax",
+    maxAge: 24 * 60 * 60 * 1000, // 1 day
+  });
+  console.log("cookeie is" , cookie);
+
+  res.json({ message: "Login successful" });
+
 };
+
+
 
 // Get logged in user
 exports.getUserData = async (req, res) => {
