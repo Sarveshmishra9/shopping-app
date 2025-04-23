@@ -21,11 +21,12 @@ const userSchema = new mongoose.Schema({
     required: true,
     select: false, // <--- Important for security (prevents it from being returned by default)
   },
-  isAdmin: {
-    type: Boolean,
-    default: false, //admin role
-  },
   avatarUrl: { type: String, default: "" }, // Store avatar URL
+  
+  isAdmin: {
+    type: Schema.Types.ObjectId,
+    ref: "User",
+  },
 
   // timestamps: true,
 });
