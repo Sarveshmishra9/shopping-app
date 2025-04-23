@@ -14,20 +14,17 @@ const ProductSchema = new mongoose.Schema(
       type: Number,
       required: true,
     },
-    category: {
+    imageUrl: {
       type: String,
+    },
+    categories: {
+      type: [String],
       required: true,
     },
-    brand: {
-      type: String,
+    themes: {
+      type: [String],
     },
-    stock: {
-      type: Number,
-      default: 1,
-    },
-    image: {
-      type: String,
-    }, // Store image URL
+    
     ratings: {
       type: Number,
       default: 0,
