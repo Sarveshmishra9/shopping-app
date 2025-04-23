@@ -23,17 +23,7 @@ const userSchema = new mongoose.Schema({
   },
   avatarUrl: { type: String, default: "" }, // Store avatar URL
 
-  isAdmin: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "User",
-  },
-  reviews: [
-    {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "User",
-      ref: "Review",
-    },
-  ],
+  
 
   // timestamps: true,
 });
