@@ -29,6 +29,18 @@ const ProductSchema = new mongoose.Schema(
       type: [String],
       required: true,
     },
+
+    reviews: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "User",
+      },
+    ],
+
+    isAdmin: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
+    },
   },
   { timestamps: true }
 );
