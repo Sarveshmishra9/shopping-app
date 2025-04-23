@@ -16,26 +16,19 @@ const ProductSchema = new mongoose.Schema(
     },
     imageUrl: {
       type: String,
+      required: true,
     },
     categories: {
       type: [String],
-      required: true,
     },
+
     themes: {
       type: [String],
     },
-    
-    ratings: {
-      type: Number,
-      default: 0,
+    sizes: {
+      type: [string],
+      required: true,
     },
-    reviews: [
-      {
-        userId: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
-        comment: String,
-        rating: Number,
-      },
-    ],
   },
   { timestamps: true }
 );
