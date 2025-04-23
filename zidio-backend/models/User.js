@@ -22,15 +22,16 @@ const userSchema = new mongoose.Schema({
     select: false, // <--- Important for security (prevents it from being returned by default)
   },
   avatarUrl: { type: String, default: "" }, // Store avatar URL
-  
+
   isAdmin: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "User",
   },
   reviews: [
     {
-      type: mongoose.Schema.Types.ObjectId, ref: "User",
-      ref:"Review"
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
+      ref: "Review",
     },
   ],
 
