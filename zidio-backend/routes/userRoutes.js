@@ -2,6 +2,8 @@ const express = require('express');
 const router = express.Router();
 const { registerUser, loginUser, getUserData } = require('../controllers/userController');
 const authMiddleware = require('../middleware/authMiddleware');
+const verifyToken  = require('../middleware/verifyToken');
+const User = require("../models/User")
 
 // Register and Login routes
 router.post('/register', registerUser);
@@ -25,6 +27,23 @@ router.get("/profile", (req, res) => {
   });
 
 // Protected route – Only accessible with a valid token
-router.get('/me', authMiddleware, getUserData);
+router.get('/me',  verifyToken, async (req, res) => {
+
+  try {
+    const user = await User.findById(req.user.id).select("-password"); // 🔐 exclude password
+
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    res.json(user); // 👈 frontend will get name, email, etc.
+  } catch (err) {
+    console.error("Fetch user error:", err);
+    res.status(500).json({ message: "Server error" });
+  }
+});
+
+
+
 
 module.exports = router;

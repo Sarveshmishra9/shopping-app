@@ -5,18 +5,23 @@ import { useNavigate } from "react-router";
 import { Button } from "./ui/button";
 import React, { useState } from 'react';
 
+import { useUser } from "../userContext.jsx"; // ✅ import the context
+
 export default function SigninForm() {
         const [email, setEmail] = useState("");
         const [password, setPassword] = useState("");
+        const { setUser } = useUser(); // ✅ get setUser from context
         let navigate = useNavigate();
 
         const registerRedirect = () => {
                 navigate("/auth/register");
         };
+        const handleClick = () => {
+                navigate("/category/men");
+        };
 
         const handleSubmit = async (e) => {
                 e.preventDefault();
-                console.log("Form submitted");
                 console.log("Form submitted", email, password);
 
                 try {
@@ -32,6 +37,8 @@ export default function SigninForm() {
                         const data = await res.json();
                         console.log('✅ Sign in successful!');
                         console.log('Received token:', data.token); // optional: log token
+
+                        setUser(data.user); // ✅ save user in context
 
                         navigate("/category/men"); // or wherever you want to redirect after login
                         
@@ -64,7 +71,7 @@ export default function SigninForm() {
                                 </LabelInputContainer>
                                 <button
                                         className="group/btn relative block h-10 w-full rounded-md bg-gradient-to-br from-black to-neutral-600 font-medium text-white shadow-[0px_1px_0px_0px_#ffffff40_inset,0px_-1px_0px_0px_#ffffff40_inset] dark:bg-zinc-800 dark:from-zinc-900 dark:to-zinc-900 dark:shadow-[0px_1px_0px_0px_#27272a_inset,0px_-1px_0px_0px_#27272a_inset]"
-                                        type="submit"  onClick="/category/men"
+                                        type="submit"  onClick={handleClick}
                                 >
                                         Sign in &rarr;
                                         <BottomGradient />

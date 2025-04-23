@@ -1,3 +1,7 @@
+// import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { useUser } from "../userContext"; // adjust path if needed
+
 import {
     Navbar,
     NavBody,
@@ -29,6 +33,11 @@ export function NavbarFloating() {
     ];
 
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+    const { user } = useUser(); // ✅ pulls user from context
+
+    // const user = JSON.parse(localStorage.getItem("user") || "null");
+    // const isAdmin = user?.isAdmin === "true" || user?.isAdmin === true;
+    console.log("Logged in user:", user);
 
     return (
         <div className="relative">
@@ -38,11 +47,23 @@ export function NavbarFloating() {
                     <NavbarLogo />
                     <NavItems items={navItems} />
                     <div className="flex items-center gap-4">
+
+                         {/* 👇 Only show this if admin is logged in */}
+
+                        {user?.isAdmin ? (
+                        <Link to="/add-listing">
+                            <NavbarButton variant="primary">Add a Listing</NavbarButton>
+                        </Link>
+                        ) : (
+                        console.log("not a admin")
+                        )}
+
                         <Link to="/auth/login">
                             <NavbarButton variant="primary">
                                 Login
                             </NavbarButton>
                         </Link>
+
                     </div>
                 </NavBody>
 
