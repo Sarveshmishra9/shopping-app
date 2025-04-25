@@ -19,6 +19,7 @@ app.use(                 // Enable CORS for frontend-backend communication
 
 // All user-related routes will start with /api/users
 app.use('/api/users', userRoutes);
+app.use('/api/products', productRoutes);
 
 main()
 .then( () => {

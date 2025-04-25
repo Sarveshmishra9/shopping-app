@@ -48,15 +48,6 @@ export function NavbarFloating() {
                     <NavItems items={navItems} />
                     <div className="flex items-center gap-4">
 
-                         {/* 👇 Only show this if admin is logged in */}
-
-                        {user?.isAdmin ? (
-                        <Link to="/add-listing">
-                            <NavbarButton variant="primary">Add a Listing</NavbarButton>
-                        </Link>
-                        ) : (
-                        console.log("not a admin")
-                        )}
 
                         <Link to="/auth/login">
                             <NavbarButton variant="primary">
