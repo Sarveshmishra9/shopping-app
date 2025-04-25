@@ -38,8 +38,8 @@ const ProductSchema = new mongoose.Schema(
     ],
 
     isAdmin: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "User",
+      type: boolean,
+      default:false
     },
   },
   { timestamps: true }
