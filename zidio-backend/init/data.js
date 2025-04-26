@@ -13,6 +13,7 @@ const productListings = [
     categories: "Men",
     subCategories: ["Graphic Printed"],
     themes: ["Marvel Universe", "Wolverine"],
+    gender: "men",
   },
 
   {
@@ -28,6 +29,7 @@ const productListings = [
     categories: "Men",
     subCategories: ["Graphic Printed"],
     themes: ["Marvel Universe"],
+    gender: "men",
   },
 
   {
@@ -43,6 +45,7 @@ const productListings = [
     categories: "Men",
     subCategories: ["Graphic Printed"],
     themes: ["Marvel Universe"],
+    gender: "men",
   },
   {
     name: "Spider-Man Spidey Tee",
@@ -57,6 +60,7 @@ const productListings = [
     categories: "Men",
     subCategories: ["Graphic Printed"],
     themes: ["Marvel Universe"],
+    gender: "women",
   },
 
   {
@@ -72,6 +76,7 @@ const productListings = [
     categories: "Men",
     subCategories: ["Graphic Printed"],
     themes: ["Marvel Universe"],
+    gender: "women",
   },
 
   {
@@ -87,6 +92,7 @@ const productListings = [
     categories: "Men",
     subCategories: ["Graphic Printed"],
     themes: ["Marvel Universe"],
+    gender: "kids",
   },
 
   {

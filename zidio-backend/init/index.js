@@ -16,10 +16,10 @@ main()
 
 const initDatabase = async () => {
   await products.deleteMany({});
-  initData.data = initData.data.map((obj) => ({
-    ...obj,
-    owener:"68092b2e4ebe4ff351cdbf6f"
-  }));
+  // initData.data = initData.data.map((obj) => ({
+  //   ...obj,
+  //   owener:"68092b2e4ebe4ff351cdbf6f"
+  // }));
   await products.insertMany(initData.data);
   console.log("data was initialized.");
 };
