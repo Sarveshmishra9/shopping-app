@@ -10,7 +10,8 @@ const productListings = [
       "Black t-shirt with Wolverine in yellow and blue suit and 'Wolverine Logan' text",
     colors: ["Black", "Yellow", "Blue"],
     sizes: ["S", "M", "L", "XL"],
-    categories: ["Graphic Printed"],
+    categories: "Men",
+    subCategories: ["Graphic Printed"],
     themes: ["Marvel Universe", "Wolverine"],
   },
 
@@ -24,7 +25,8 @@ const productListings = [
     altText: "Black t-shirt with Red Hulk graphic and 'RED HULK' text",
     colors: ["Black", "Red", "Yellow"],
     sizes: ["S", "M", "L", "XL"],
-    categories: ["Graphic Printed"],
+    categories: "Men",
+    subCategories: ["Graphic Printed"],
     themes: ["Marvel Universe"],
   },
 
@@ -38,7 +40,8 @@ const productListings = [
     altText: "Black t-shirt with multiple Marvel heroes designs",
     colors: ["Black", "Red", "Blue", "Green", "Purple"],
     sizes: ["S", "M", "L", "XL"],
-    categories: ["Graphic Printed"],
+    categories: "Men",
+    subCategories: ["Graphic Printed"],
     themes: ["Marvel Universe"],
   },
   {
@@ -51,7 +54,8 @@ const productListings = [
     altText: "Brown t-shirt with Spider-Man graphic and 'SPIDEY' text",
     colors: ["Brown", "Red", "Yellow", "Blue"],
     sizes: ["S", "M", "L", "XL"],
-    categories: ["Graphic Printed"],
+    categories: "Men",
+    subCategories: ["Graphic Printed"],
     themes: ["Marvel Universe"],
   },
 
@@ -65,7 +69,8 @@ const productListings = [
     altText: "Black t-shirt with Iron Man arc reactor design",
     colors: ["Black", "Red", "Grey"],
     sizes: ["S", "M", "L", "XL"],
-    categories: ["Graphic Printed"],
+    categories: "Men",
+    subCategories: ["Graphic Printed"],
     themes: ["Marvel Universe"],
   },
 
@@ -79,23 +84,24 @@ const productListings = [
     altText: "Navy blue t-shirt with Venom face graphic",
     colors: ["Navy Blue", "White", "Red", "Black"],
     sizes: ["S", "M", "L", "XL"],
-    categories: ["Graphic Printed"],
+    categories: "Men",
+    subCategories: ["Graphic Printed"],
     themes: ["Marvel Universe"],
   },
 
   {
-    name: "Deadpool Sassy Tee",
+    name: "Marvel Panther Pose Tee",
     description:
-      "Channel Deadpool's attitude with this t-shirt featuring the Merc with a Mouth and his sassy 'DO I LOOK LIKE I CARE?' catchphrase.",
+      "Show off your Marvel fandom with this black t-shirt featuring a sleek outline graphic of Black Panther above a bold MARVEL logo.",
     price: 499,
     imageUrl:
-      "https://images.unsplash.com/photo-1608889825207-5e3e0b8c6f8d?q=80&w=500&auto=format&fit=crop",
-    altText:
-      "Black t-shirt with Deadpool graphic and 'DO I LOOK LIKE I CARE?' text",
-    colors: ["Black", "Red", "White"],
+      "https://res.cloudinary.com/clouddevs/image/upload/v1745607877/official-marvel-merchandise-bewakoof-women-s-black-graphic-short-sleeve-round-neck-t-shirt-product-images-rvwjnj5edt-0-202305222252_prg2pn.webp",
+    altText: "Black t-shirt with Black Panther outline and bold MARVEL text",
+    colors: ["Black", "White", "Purple"],
     sizes: ["S", "M", "L", "XL"],
-    categories: ["Graphic Printed"],
-    themes: ["Marvel Universe"],
+    categories: "Women",
+    subCategories: ["Graphic Printed"],
+    themes: ["Marvel Universe", "Black Panther"],
   },
 
   {
@@ -109,7 +115,8 @@ const productListings = [
       "Black t-shirt with a large back graphic of Black Panther in mech armor and glowing blue eyes",
     colors: ["Black", "Blue", "Grey"],
     sizes: ["S", "M", "L", "XL"],
-    categories: ["Graphic Printed"],
+    categories: "Men",
+    subCategories: ["Graphic Printed"],
     themes: ["Marvel Universe", "Mecha Style"],
   },
 
@@ -124,7 +131,8 @@ const productListings = [
       "Black t-shirt with Deadpool graphic and 'Deadpool Wolverine' text",
     colors: ["Black", "Red", "Yellow"],
     sizes: ["S", "M", "L", "XL"],
-    categories: ["Graphic Printed"],
+    categories: "Men",
+    subCategories: ["Graphic Printed"],
     themes: ["Marvel Universe", "Deadpool", "Wolverine"],
   },
 
@@ -139,7 +147,8 @@ const productListings = [
       "Black t-shirt with a large Venom graphic and 'We Are Venom' text in blue",
     colors: ["Black", "Blue", "White"],
     sizes: ["S", "M", "L", "XL"],
-    categories: ["Graphic Printed"],
+    categories: "Men",
+    subCategories: ["Graphic Printed"],
     themes: ["Marvel Universe", "Venom"],
   },
 
@@ -154,7 +163,8 @@ const productListings = [
       "Red t-shirt with an intense graphic of Red Hulk and bold text on the back",
     colors: ["Red", "Black", "White"],
     sizes: ["S", "M", "L", "XL"],
-    categories: ["Graphic Printed"],
+    categories: "Men",
+    subCategories: ["Graphic Printed"],
     themes: ["Marvel Universe", "Hulk"],
   },
 
@@ -169,7 +179,8 @@ const productListings = [
       "Black and red Marvel long sleeve t-shirt with logos on the sleeve and MARVEL text on chest",
     colors: ["Black", "Red"],
     sizes: ["S", "M", "L", "XL"],
-    categories: ["Full Sleeve", "Color Block"],
+    categories: "Men",
+    subCategories: ["Full Sleeve", "Color Block"],
     themes: ["Marvel Universe"],
   },
 
@@ -184,7 +195,8 @@ const productListings = [
       "Black t-shirt with red spider logo inspired by Spider-Man Symbiote",
     colors: ["Black", "Red"],
     sizes: ["S", "M", "L", "XL"],
-    categories: ["T-Shirt", "Graphic Tee"],
+    categories: "Men",
+    subCategories: ["T-Shirt", "Graphic Tee"],
     themes: ["Spider-Man", "Symbiote", "Marvel Universe"],
   },
 
@@ -198,7 +210,8 @@ const productListings = [
     altText: "White t-shirt with Marvel logo and chibi Iron Man character",
     colors: ["White", "Red", "Yellow"],
     sizes: ["S", "M", "L", "XL"],
-    categories: ["T-Shirt", "Graphic Tee"],
+    categories: "Men",
+    subCategories: ["T-Shirt", "Graphic Tee"],
     themes: ["Iron Man", "Marvel Comics", "Chibi Style"],
   },
 
@@ -213,7 +226,8 @@ const productListings = [
       "Navy blue t-shirt with Marvel logo, Deadpool face, and the word 'Jesus'",
     colors: ["Navy Blue", "Red", "White"],
     sizes: ["S", "M", "L", "XL"],
-    categories: ["T-Shirt", "Graphic Tee"],
+    categories: "Men",
+    subCategories: ["T-Shirt", "Graphic Tee"],
     themes: ["Deadpool", "Marvel Comics", "Streetwear"],
   },
 
@@ -227,7 +241,8 @@ const productListings = [
     altText: "Black hoodie with bold Marvel logo on the chest",
     colors: ["Black", "Red", "White"],
     sizes: ["S", "M", "L", "XL"],
-    categories: ["Hoodie", "Pullover"],
+    categories: "Men",
+    subCategories: ["Hoodie", "Pullover"],
     themes: ["Marvel Comics", "Superhero", "Casual"],
   },
 
@@ -241,7 +256,8 @@ const productListings = [
     altText: "Black hoodie with The Amazing Spider-Man comic cover print",
     colors: ["Black", "Red", "Blue", "Yellow", "White"],
     sizes: ["S", "M", "L", "XL"],
-    categories: ["Hoodie", "Graphic Hoodie"],
+    categories: "Men",
+    subCategories: ["Hoodie", "Graphic Hoodie"],
     themes: ["Spider-Man", "Marvel Comics", "Retro", "Punisher"],
   },
 
@@ -255,7 +271,8 @@ const productListings = [
     altText: "White oversized t-shirt with Marvel logo and chibi Iron Man",
     colors: ["White", "Red", "Gold", "Black"],
     sizes: ["S", "M", "L", "XL"],
-    categories: ["T-Shirt", "Graphic Tee"],
+    categories: "Men",
+    subCategories: ["T-Shirt", "Graphic Tee"],
     themes: ["Iron Man", "Marvel Comics", "Chibi", "Streetwear"],
   },
 
@@ -269,7 +286,8 @@ const productListings = [
     altText: "Beige hoodie with retro Amazing Spider-Man comic cover print",
     colors: ["Beige", "Red", "Black", "White"],
     sizes: ["S", "M", "L", "XL"],
-    categories: ["Hoodie", "Pullover"],
+    categories: "Men",
+    subCategories: ["Hoodie", "Pullover"],
     themes: ["Spider-Man", "Marvel Comics", "Vintage", "Retro"],
   },
 
@@ -283,9 +301,185 @@ const productListings = [
     altText: "Washed black hoodie with Doctor Doom and Marvel logo",
     colors: ["Washed Black", "Green", "Grey"],
     sizes: ["S", "M", "L", "XL"],
-    categories: ["Hoodie", "Pullover"],
+    categories: "Men",
+    subCategories: ["Hoodie", "Pullover"],
     themes: ["Doctor Doom", "Marvel Comics", "Villains", "Streetwear"],
   },
+  {
+    name: "Marvel Hanging Spider-Man Tee",
+    description:
+      "Fresh and playful, this white 3/4 sleeve t-shirt features the iconic red Marvel logo with an adorable chibi Spider-Man hanging from it. A must-have for every Marvel fan!",
+    price: "599",
+    imageUrl:
+      "https://res.cloudinary.com/clouddevs/image/upload/v1745607876/58343104-7464-4201-a554-5b415c9b08791617959687972-1_j5pz3o.jpg",
+    altText: "White t-shirt with Marvel logo and chibi Spider-Man hanging",
+    colors: ["White", "Red", "Blue"],
+    sizes: ["S", "M", "L", "XL"],
+    categories: "Women",
+    subCategories: ["T-Shirt", "Graphic Tee"],
+    themes: ["Spider-Man", "Marvel Comics", "Chibi Style"],
+  },
+
+  {
+    name: "Deadpool & Wolverine Oversized T-shirt",
+    description:
+      "Peach t-shirt featuring bold Deadpool and Wolverine comic print, perfect for Marvel fans.",
+    price: 799,
+    imageUrl:
+      "https://res.cloudinary.com/clouddevs/image/upload/v1745609342/women-s-orange-deadpool-graphic-printed-oversized-t-shirt-637480-1737523125-1_bsk4id.jpg",
+    altText: "Peach t-shirt with Deadpool and Wolverine graphic print",
+    colors: ["Peach", "Red", "Yellow", "Blue"],
+    sizes: ["S", "M", "L", "XL"],
+    categories: "Women",
+    subCategories: ["T-Shirt", "Oversized", "Casual Wear"],
+    themes: ["Marvel", "Deadpool", "Wolverine", "Comic Art"],
+  },
+
+  {
+    name: "Deadpool & Wolverine Typography Boyfriend T-shirt",
+    description: "Rust orange t-shirt with Deadpool and Wolverine typography and Marvel graphics, ideal for comic lovers.",
+    price: 749,
+    imageUrl: "https://res.cloudinary.com/clouddevs/image/upload/v1745609367/women-s-orange-best-buds-graphic-printed-boyfriend-t-shirt-648361-1726210212-1_dnc36s.jpg",
+    altText: "Rust orange t-shirt with Marvel typography",
+    colors: ["Rust Orange", "White"],
+    sizes: ["S", "M", "L", "XL"],
+    categories:"Women",
+    subCategories: ["T-Shirt", "Boyfriend Fit", "Casual Wear"],
+    themes: ["Marvel", "Deadpool", "Wolverine", "Typography"]
+  },
+  {
+    name: "Mitsuri Kanroji Graphic Oversized T-shirt",
+    description: "Black oversized t-shirt with Mitsuri Kanroji anime graphic from Demon Slayer, perfect for anime enthusiasts.",
+    price: 849,
+    imageUrl: "https://res.cloudinary.com/clouddevs/image/upload/v1745609466/women-s-black-mitsuri-kanroji-graphic-printed-oversized-t-shirt-645157-1736424542-1_hcejhx.jpg",
+    altText: "Black t-shirt with Mitsuri Kanroji anime print",
+    colors: ["Black", "Pink", "Green"],
+    sizes: ["S", "M", "L", "XL"],
+    categories:"Women",
+    subCategories: ["T-Shirt", "Oversized", "Anime Wear"],
+    themes: ["Demon Slayer", "Mitsuri Kanroji", "Anime", "Manga"]
+
+  },
+  {
+    name: "Nezuko Kamado Typography Boyfriend T-shirt",
+    description: "Light pink boyfriend t-shirt with bold Nezuko Kamado typography design from Demon Slayer series.",
+    price: 749,
+    imageUrl: "https://res.cloudinary.com/clouddevs/image/upload/v1745609504/women-s-pink-nezuko-kamado-typography-boyfriend-t-shirt-645155-1739174341-1_fqyo7w.jpg",
+    altText: "Light pink t-shirt with Nezuko Kamado typography",
+    colors: ["Light Pink", "Dark Pink"],
+    sizes: ["S", "M", "L", "XL"],
+    categories:"Women",
+    subCategories: ["T-Shirt", "Boyfriend Fit", "Anime Wear"],
+    themes: ["Demon Slayer", "Nezuko Kamado", "Anime", "Typography"]
+  },
+  {
+    name: "Dark Knight Graphic Tee",
+    description: "Channel the dark hero vibes with this grey and black t-shirt featuring a bold Batman graphic. Ideal for casual outings and superhero fans!",
+    price: 699,
+    imageUrl: "https://res.cloudinary.com/clouddevs/image/upload/v1745680016/1733810895_7580637.jpg_byebyi.webp",
+    altText: "Grey and black t-shirt with Batman graphic",
+    colors: ["Grey", "Black"],
+    sizes: ["S", "M", "L", "XL"],
+    categories:"Kids",
+    subCategories: ["T-Shirt", "Superhero Wear"],
+    themes: ["Batman", "Heroic Style", "Street Fashion"]
+  },
+  {
+    name: "Batman Oversized Fit Tee",
+    description: "Rock the bat-signal look with this black oversized fit t-shirt featuring Batman logo and stylish sleeve detailing. Perfect for comfy and cool streetwear!",
+    price: 749,
+    imageUrl: "https://res.cloudinary.com/clouddevs/image/upload/v1745679968/1741174278_8263515.jpg_ebe6uz.webp",
+    altText: "Black oversized t-shirt with Batman logo",
+    colors: ["Black", "White"],
+    sizes: ["S", "M", "L", "XL"],
+    categories:"Kids",
+    subCategories: ["T-Shirt", "Oversized Fit"],
+    themes: ["Batman", "Street Style", "Casual Cool"]
+  },
+  {
+    name: "Spidey Action Graphic Tee",
+    description: "Bring the web-slinging action to life with this beige t-shirt featuring a vibrant Spider-Man graphic. Perfect for everyday heroics and play!",
+    price: 699,
+    imageUrl: "https://res.cloudinary.com/clouddevs/image/upload/v1745679913/1733813595_1743881.jpg_vgquy3.webp",
+    altText: "Beige t-shirt with colorful Spider-Man graphic",
+    colors: ["Beige", "Red", "Blue"],
+    sizes: ["S", "M", "L", "XL"],
+    categories:"Kids",
+    subCategories: ["T-Shirt", "Superhero Wear"],
+    themes: ["Spider-Man", "Action Hero", "Fun Casual"]
+  },
+  {
+    name: "Super Hero Spidey Tee",
+    description: "Show off your superhero spirit with this sky blue t-shirt featuring Spider-Man and bold comic-style graphics. Ideal for fans of classic superheroes!",
+    price: 749,
+    imageUrl: "https://res.cloudinary.com/clouddevs/image/upload/v1745679876/1734586140_9617151.jpg_ymfin2.webp",
+    altText: "Sky blue t-shirt with Spider-Man comic graphic",
+    colors: ["Sky Blue", "Red", "Black"],
+    sizes: ["S", "M", "L", "XL"],
+    categories:"Kids",
+    subCategories: ["T-Shirt", "Superhero Wear"],
+    themes: ["Spider-Man", "Comic Style", "Classic Hero"]
+  },
+  {
+    name: "Batman Hero Stance Tee",
+    description: "Gear up your young hero with this grey long-sleeve t-shirt featuring a vibrant BATMAN graphic across the chest.",
+    price: 599,
+    imageUrl: "https://res.cloudinary.com/clouddevs/image/upload/v1745679847/1718262300_1222051.jpg_efi7ke.webp",
+    altText: "Grey long-sleeve t-shirt with colorful BATMAN graphic",
+    colors: ["Grey", "Blue", "Yellow"],
+    sizes: ["S", "M", "L", "XL"],
+    categories:"Kids",
+    subCategories: ["Graphic Printed"],
+    themes: ["DC Universe", "Batman"]
+  },
+  {
+    name: "Superman Colorblock Sweatshirt",
+    description: "Let your little one stand out with this bold colorblock sweatshirt featuring an embroidered Superman logo on the chest.",
+    price: 799,
+    imageUrl: "https://res.cloudinary.com/clouddevs/image/upload/v1745679693/1735196253_6913497.jpg_xcb769.webp",
+    altText: "Colorblock sweatshirt with embroidered Superman logo",
+    colors: ["Navy Blue", "Red", "Yellow"],
+    sizes: ["S", "M", "L", "XL"],
+    categories:"Kids",
+    subCategories: ["Graphic Printed", "Sweatshirt"],
+    themes: ["DC Universe", "Superman"]
+  },
+  {
+    name: "Minions Forever Friends Sweatshirt",
+    description: "Celebrate friendship with this cheerful yellow sweatshirt featuring Minions characters and 'Forever Friends' text graphic.",
+    price: 699,
+    imageUrl: "https://res.cloudinary.com/clouddevs/image/upload/v1745679652/1733810903_9895022.jpg_cu7ntj.webp",
+    altText: "Yellow sweatshirt with Minions and 'Forever Friends' text",
+    colors: ["Yellow", "Blue", "Black"],
+    sizes: ["S", "M", "L", "XL"],
+    categories:"Kids",
+    subCategories: ["Graphic Printed", "Sweatshirt"],
+    themes: ["Minions", "Animated Characters"]
+  },
+  {
+    name: "Marvel Wolverine Slash Tee",
+    description: "Show off your Marvel fandom with this grey t-shirt featuring a bold graphic of Wolverine with his claws extended and a fierce expression.",
+    price: 499,
+    imageUrl: "https://res.cloudinary.com/clouddevs/image/upload/v1745679814/1731745720_7607289.jpg_g6krpy.webp",
+    altText: "Grey t-shirt with Wolverine graphic and slash design",
+    colors: ["Grey", "Black", "White"],
+    sizes: ["S", "M", "L", "XL"],
+    categories:"Kids",
+    subCategories: ["Graphic Printed"],
+    themes: ["Marvel Universe", "Wolverine"]
+  },
+  {
+    name: "DC Wonder Woman Graphic Tee",
+    description: "Embrace your inner hero with this navy blue t-shirt featuring a vibrant pop-art style graphic of Wonder Woman in a colorful frame.",
+    price: 499,
+    imageUrl: "https://res.cloudinary.com/clouddevs/image/upload/v1745679747/1709725268_5133454.jpg_o1bthd.webp",
+    altText: "Navy blue t-shirt with pop-art style Wonder Woman graphic",
+    colors: ["Navy Blue", "Yellow", "Pink"],
+    sizes: ["S", "M", "L", "XL"],
+    categories:"Kids",
+    subCategories: ["Graphic Printed"],
+    themes: ["DC Universe", "Wonder Woman"]
+  }
 ];
 
 module.exports = { data: productListings };
