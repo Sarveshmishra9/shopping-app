@@ -21,6 +21,9 @@ const ProductSchema = new mongoose.Schema(
     categories: {
       type: [String],
     },
+    gender: {
+      type: [String],
+    },
 
     themes: {
       type: [String],
@@ -38,7 +41,7 @@ const ProductSchema = new mongoose.Schema(
     ],
 
     isAdmin: {
-      type: boolean,
+      type: Boolean,
       default:false
     },
   },

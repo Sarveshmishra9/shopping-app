@@ -29,10 +29,10 @@ const generateToken = (user) => {
     {
       id: user._id,
       email: user.email,
-      role: user.role,
+      isAdmin: user.isAdmin
     },
     "secret123",
-    { expiresIn: "1d" }
+    { expiresIn: "7d" }
   );
   //   jwt.sign() creates a token using the user's ID and your secret key.
 };
@@ -62,7 +62,14 @@ exports.registerUser = async (req, res) => {
 
   const token = generateToken(user);
 
-  res.status(201).json({ token }); // Sends the token back to the frontend.
+  res.cookie("token", token, {
+    httpOnly: true,
+    secure: false, // true in production
+    sameSite: "Lax",
+    maxAge: 24 * 60 * 60 * 1000, // 1 day
+  });
+
+  res.status(201).json({ message: "User registered successfully" });
 };
 
 // Login
@@ -91,18 +98,29 @@ exports.loginUser = async (req, res) => {
       return res.status(400).json({ message: "Invalid credentials" });
     }
 
-    const token = generateToken(user); // If login is successful → create a new JWT token and send it to the frontend.
-    console.log("Login successful, token:", token);
-    res.json({ token });
+  const token = jwt.sign(
+    { id: user._id, email: user.email, isAdmin: user.isAdmin }, // include isAdmin here
+    "secret123", // or process.env.JWT_SECRET if you're using .env
+    { expiresIn: "1d" }
+  );
+
+     console.log("Login successful, token:", token);
+
+  res.cookie("token", token, {
+    httpOnly: true,
+    secure: false, // true in production
+    sameSite: "Lax",
+    maxAge: 24 * 60 * 60 * 1000, // 1 day
+  })
+  .status(200)
+  .json({ message: "Login successful", isAdmin: user.isAdmin,token, user  });
+
   } catch (err) {
     console.error("Login error:", err);
     res.status(500).json({ message: "Server error" });
   }
 };
 
-// Get logged in user
-exports.getUserData = async (req, res) => {
-  //This gets info of logged-in user, using the token.
-  const user = await User.findById(req.user.id).select("-password");
-  res.json(user);
-};
+
+
+

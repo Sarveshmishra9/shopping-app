@@ -14,13 +14,19 @@ import { WomenCategorySection } from "./sections/women-category-section.jsx";
 import { KidsCategorySection } from "./sections/kids-category-section.jsx";
 
 
+
+
+
+
 createRoot(document.getElementById("root")).render(
     <StrictMode>
+        
         <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
             <BrowserRouter>
                 <Routes>
                     <Route path="/" element={<App />}>
                         <Route path="/" element={<DummyContent />} />
+
                         <Route path="auth" element={<AuthPage />}>
                             <Route path="login" element={<SigninForm />} />
                             <Route path="register" element={<SignupForm />} />
@@ -34,5 +40,6 @@ createRoot(document.getElementById("root")).render(
                 </Routes>
             </BrowserRouter>
         </ThemeProvider>
+  
     </StrictMode>
 );
