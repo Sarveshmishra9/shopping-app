@@ -19,7 +19,11 @@ const ProductSchema = new mongoose.Schema(
       required: true,
     },
     categories: {
-      type: [String],
+      type: String,
+    },
+    
+    subCategories: {
+      type:[string],
     },
 
     themes: {
