@@ -24,17 +24,18 @@ export default function SignupForm() {
             body: JSON.stringify({                             // Converts your JS object into JSON format, so the server can understand it.
                 firstName, lastName, email, password,
             }),
+            credentials: "include", // very important!
         });
 
         const data = await res.json();
         console.log(data);
         //Once the response comes back, this line reads the JSON from it (the actual data your backend returned).
 
-        if (data.token) {
-            localStorage.setItem("token", data.token); // 🔐 save token
-            //Saves the JWT token in the browser's local storage (so that the user stays logged in on refresh, etc.)
-            navigate("/home");
-        }
+        // if (data.token) {
+        //     localStorage.setItem("token", data.token); // 🔐 save token
+        //     //Saves the JWT token in the browser's local storage (so that the user stays logged in on refresh, etc.)
+        navigate("/category/men");
+        // }
     };
     return (
         <div className="shadow-input mx-auto w-full max-w-md rounded-none bg-white p-4 md:rounded-2xl md:p-8 dark:bg-black">

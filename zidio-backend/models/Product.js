@@ -14,31 +14,40 @@ const ProductSchema = new mongoose.Schema(
       type: Number,
       required: true,
     },
-    category: {
+    imageUrl: {
       type: String,
       required: true,
     },
-    brand: {
+    categories: {
       type: String,
     },
-    stock: {
-      type: Number,
-      default: 1,
+    
+    subCategories: {
+      type:[string],
     },
-    image: {
-      type: String,
-    }, // Store image URL
-    ratings: {
-      type: Number,
-      default: 0,
+    gender: {
+      type: [String],
     },
+
+    themes: {
+      type: [String],
+    },
+    sizes: {
+      type: [String],
+      required: true,
+    },
+
     reviews: [
       {
-        userId: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
-        comment: String,
-        rating: Number,
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "User",
       },
     ],
+
+    isAdmin: {
+      type: Boolean,
+      default:false
+    },
   },
   { timestamps: true }
 );
