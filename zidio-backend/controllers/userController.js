@@ -95,7 +95,7 @@ exports.registerUser = async (req, res) => {
   await user.save();
 
   res.status(201).json({
-    message: "User registered successfully"});
+    message: "User registered successfully" , accessToken});
 
    } catch (err) {
     console.error("Registration error:", err);
@@ -156,7 +156,7 @@ exports.loginUser = async (req, res) => {
   
   res.status(200).json({
     message: "Login successful",
-    isAdmin: user.isAdmin
+    isAdmin: user.isAdmin, accessToken
   });
 
   } catch (err) {
