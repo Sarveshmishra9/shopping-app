@@ -24,22 +24,33 @@ const avatarUrl = [
 ];
 
 // Generate JWT token
-const generateToken = (user) => {
+const generateAccessToken = (user) => {
   return jwt.sign(
     {
       id: user._id,
       email: user.email,
       isAdmin: user.isAdmin
     },
-    "secret123",
-    { expiresIn: "7d" }
+    process.env.ACCESS_TOKEN_SECRET,
+    { expiresIn: "15m" } // short lived
   );
   //   jwt.sign() creates a token using the user's ID and your secret key.
+};
+
+// Generate Refresh Token
+const generateRefreshToken = (user) => {
+  return jwt.sign(
+    { id: user._id, email: user.email, isAdmin: user.isAdmin },
+    process.env.REFRESH_TOKEN_SECRET,
+    { expiresIn: "7d" } // long lived
+  );
 };
 
 // Register
 exports.registerUser = async (req, res) => {
   const { firstName, lastName, email, password } = req.body;
+
+  try {
 
   const existingUser = await User.findOne({ email });
   if (existingUser) {
@@ -56,20 +67,41 @@ exports.registerUser = async (req, res) => {
     password: hashedPassword,
     avatarUrl: randomAvatars,
   });
-  await user.save();
+
+ 
+
   console.log("Password from frontend:", password);
   console.log("Password from DB:", user.password);
 
-  const token = generateToken(user);
+  const accessToken = generateAccessToken(user);
+  const refreshToken = generateRefreshToken(user);
 
-  res.cookie("token", token, {
+  // Set tokens in cookies
+  res.cookie("accessToken", accessToken, {
     httpOnly: true,
-    secure: false, // true in production
+    secure: false,
     sameSite: "Lax",
-    maxAge: 24 * 60 * 60 * 1000, // 1 day
+    maxAge: 15 * 60 * 1000, // 15 minutes
   });
 
-  res.status(201).json({ message: "User registered successfully" });
+  res.cookie("refreshToken", refreshToken, {
+    httpOnly: true,
+    secure: false,
+    sameSite: "Lax",
+    maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
+  });
+
+  user.refreshToken = refreshToken;
+  await user.save();
+
+  res.status(201).json({
+    message: "User registered successfully" , accessToken});
+
+   } catch (err) {
+    console.error("Registration error:", err);
+    res.status(500).json({ message: "Server error" });
+  }
+
 };
 
 // Login
@@ -98,22 +130,34 @@ exports.loginUser = async (req, res) => {
       return res.status(400).json({ message: "Invalid credentials" });
     }
 
-  const token = jwt.sign(
-    { id: user._id, email: user.email, isAdmin: user.isAdmin }, // include isAdmin here
-    "secret123", // or process.env.JWT_SECRET if you're using .env
-    { expiresIn: "1d" }
-  );
+    const accessToken = generateAccessToken(user);
+    const refreshToken = generateRefreshToken(user);
 
-     console.log("Login successful, token:", token);
+     // Update refresh token in database
+     user.refreshToken = refreshToken;
+     await user.save();
 
-  res.cookie("token", token, {
+      console.log("Login successful, accessToken:", accessToken);
+
+  // Set tokens in cookies
+  res.cookie("accessToken", accessToken, {
     httpOnly: true,
-    secure: false, // true in production
+    secure: false,
     sameSite: "Lax",
-    maxAge: 24 * 60 * 60 * 1000, // 1 day
-  })
-  .status(200)
-  .json({ message: "Login successful", isAdmin: user.isAdmin,token, user  });
+    maxAge: 15 * 60 * 1000, // 15 minutes
+  });
+
+  res.cookie("refreshToken", refreshToken, {
+    httpOnly: true,
+    secure: false,
+    sameSite: "Lax",
+    maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
+  });
+  
+  res.status(200).json({
+    message: "Login successful",
+    isAdmin: user.isAdmin, accessToken
+  });
 
   } catch (err) {
     console.error("Login error:", err);
@@ -121,6 +165,57 @@ exports.loginUser = async (req, res) => {
   }
 };
 
+// Refresh Token Route
+exports.refreshToken = async (req, res) => {
+  const refreshToken = req.cookies.refreshToken;
+
+  if (!refreshToken) {
+    return res.status(401).json({ message: "No refresh token provided" });
+  }
+
+  try {
+    const decoded = jwt.verify(refreshToken,  process.env.REFRESH_TOKEN_SECRET);
+
+    const user = await User.findById(decoded.id);
+
+    if (!user || user.refreshToken !== refreshToken) {
+      return res.status(403).json({ message: "Invalid refresh token" });
+    }
+
+    const newAccessToken = generateAccessToken(user);
+
+    res.cookie("accessToken", newAccessToken, {
+      httpOnly: true,
+      secure: false,
+      sameSite: "Lax",
+      maxAge: 15 * 60 * 1000,
+    });
+
+    res.status(200).json({ message: "Access token refreshed" });
+  } catch (err) {
+    console.error("Refresh token error:", err);
+    res.status(403).json({ message: "Invalid refresh token" });
+  }
+};
+
+
+// Logout
+exports.logoutUser = async (req, res) => {
+  try {
+    res.clearCookie("accessToken");
+    res.clearCookie("refreshToken");
+
+    // Also remove refresh token from database
+    if (req.user?.id) {
+      await User.findByIdAndUpdate(req.user.id, { refreshToken: "" });
+    }
+
+    res.status(200).json({ message: "Logged out successfully" });
+  } catch (error) {
+    console.error("Logout error:", error);
+    res.status(500).json({ message: "Server error during logout" });
+  }
+};
 
 
 
