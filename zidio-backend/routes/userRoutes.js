@@ -1,9 +1,10 @@
 const express = require('express');
 const router = express.Router();
-const { registerUser, loginUser, getUserData } = require('../controllers/userController');
+const { registerUser, loginUser, getUserData, refreshToken, logoutUser } = require('../controllers/userController');
 const authMiddleware = require('../middleware/authMiddleware');
 const verifyToken  = require('../middleware/verifyToken');
 const User = require("../models/User")
+const jwt = require("jsonwebtoken");
 
 // Register and Login routes
 router.post('/register', registerUser);
@@ -21,10 +22,7 @@ router.get("/profile", (req, res) => {
   });
   
   // Logout
-  router.post("/logout", (req, res) => {
-    res.clearCookie("token");
-    res.json({ message: "Logged out" });
-  });
+  router.post("/logout", verifyToken, logoutUser  )
 
 // Protected route – Only accessible with a valid token
 router.get('/me',  verifyToken, async (req, res) => {
@@ -42,6 +40,15 @@ router.get('/me',  verifyToken, async (req, res) => {
     res.status(500).json({ message: "Server error" });
   }
 });
+
+
+router.get("/refresh_token", refreshToken );
+//accessToken is short-lived (15 min), so if access token expires,
+// your frontend should automatically call /refresh_route to get a new one using refresh token.
+// Your refresh token will stay in browser cookie and database for 7 days.
+
+
+
 
 
 
