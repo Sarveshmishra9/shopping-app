@@ -23,7 +23,7 @@ const ProductSchema = new mongoose.Schema(
     },
     
     subCategories: {
-      type:[string],
+      type:[String],
     },
     gender: {
       type: [String],

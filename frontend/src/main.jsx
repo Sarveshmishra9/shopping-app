@@ -12,8 +12,7 @@ import CategoryPage from "./pages/category-page.jsx";
 import { MenCategorySection } from "./sections/men-category-section.jsx";
 import { WomenCategorySection } from "./sections/women-category-section.jsx";
 import { KidsCategorySection } from "./sections/kids-category-section.jsx";
-
-
+// import HomePage from "./pages/home-page.jsx"; // ✅ Import HomePage
 
 
 
@@ -25,6 +24,8 @@ createRoot(document.getElementById("root")).render(
             <BrowserRouter>
                 <Routes>
                     <Route path="/" element={<App />}>
+                    {/* <Route index element={<HomePage />} /> ✅ HomePage route */}
+
                         <Route path="/" element={<DummyContent />} />
 
                         <Route path="auth" element={<AuthPage />}>
