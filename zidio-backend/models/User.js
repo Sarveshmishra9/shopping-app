@@ -1,5 +1,5 @@
-const mongoose = require("mongoose");
 // const bcrypt = require('bcryptjs');
+const mongoose = require("mongoose");
 
 //schema
 const userSchema = new mongoose.Schema({
@@ -22,16 +22,6 @@ const userSchema = new mongoose.Schema({
     select: false, // <--- Important for security (prevents it from being returned by default)
   },
   avatarUrl: { type: String, default: "" }, // Store avatar URL
-
-  refreshToken: {
-    type: String,
-    default: ""
-  }                   // Store refresh token
-
-
-  
-
-  // timestamps: true,
 });
 
 //exporting

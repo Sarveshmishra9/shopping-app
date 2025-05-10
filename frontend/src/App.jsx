@@ -1,9 +1,9 @@
 import { NavbarFloating } from "./components/floating-navbar";
 function App() {
-    return (
-        <div>
-            <NavbarFloating />
-        </div>
-    );
+  return (
+    <div>
+      <NavbarFloating />
+    </div>
+  );
 }
 export default App;
