@@ -8,6 +8,9 @@ const generateAccessToken = (user) => {
       id: user._id,
       email: user.email,
       isAdmin: user.isAdmin,
+      firstName: user.firstName,
+      lastName: user.lastName,
+      avatarUrl: user.avatarUrl,
     },
     process.env.ACCESS_TOKEN_SECRET,
     { expiresIn: "15m" }, // short lived

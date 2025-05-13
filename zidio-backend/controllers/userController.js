@@ -43,7 +43,8 @@ exports.registerUser = async (req, res, next) => {
     );
   }
 
-  const { firstName, lastName, email, password } = req.body;
+  let { firstName, lastName, email, password } = req.body;
+  email = email.toLowerCase(); //lowercase
 
   try {
     const existingUser = await User.findOne({ email });
@@ -98,7 +99,8 @@ exports.loginUser = async (req, res) => {
     );
   }
 
-  const { email, password } = req.body; // Gets the login form data (email, password) from the frontend.
+  let { email, password } = req.body; // Gets the login form data (email, password) from the frontend.
+  email = email.toLowerCase(); //lowercase
   console.log("Login data received:", { email, password });
 
   try {
@@ -121,7 +123,6 @@ exports.loginUser = async (req, res) => {
       console.log("Password did not match");
       next(new ExpressError({ status: 400, message: "Invalid credentials" }));
     }
-
     const accessToken = generateAccessToken(user);
     const refreshToken = generateRefreshToken(user);
 
@@ -135,7 +136,6 @@ exports.loginUser = async (req, res) => {
 
     // Set tokens in cookies
     res.cookie("accessToken", accessToken, {
-      httpOnly: true,
       secure: false,
       sameSite: "Lax",
       maxAge: 15 * 60 * 1000, // 15 minutes
