@@ -15,7 +15,7 @@ import { useState } from "react";
 import DropDownMenu from "./drop-down-menu";
 import { Link, Outlet } from "react-router";
 import { useEffect } from "react";
-import { useUser } from "./providers/user-provider";
+import { useUserStore } from "@/store";
 
 export function NavbarFloating() {
   const navItems = [
@@ -35,7 +35,8 @@ export function NavbarFloating() {
 
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  const { user } = useUser();
+  const userId = useUserStore((state) => state.userId);
+  console.log("the user id from the floating bar is", userId);
 
   return (
     <div className="relative">
@@ -45,7 +46,7 @@ export function NavbarFloating() {
           <NavbarLogo />
           <NavItems items={navItems} />
           <div className="flex items-center gap-4">
-            {user ? (
+            {userId ? (
               <DropDownMenu />
             ) : (
               <Link to="/auth/login">

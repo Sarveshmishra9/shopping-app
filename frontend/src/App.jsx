@@ -1,7 +1,7 @@
 import { NavbarFloating } from "./components/floating-navbar";
 import { Toaster } from "sonner";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { UserProvider } from "./components/providers/user-provider";
+import UserProvider from "./components/providers/user-provider";
 //tanstack query client
 const queryClient = new QueryClient();
 

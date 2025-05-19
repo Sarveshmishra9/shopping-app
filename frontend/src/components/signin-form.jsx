@@ -9,12 +9,12 @@ import { loginUser } from "./queries/userQueries";
 import { toast } from "sonner";
 import Cookies from "js-cookie";
 import { jwtDecode } from "jwt-decode";
-import { useUser } from "./providers/user-provider";
+import { useUserStore } from "@/store";
 
 export default function SigninForm() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const { setUser } = useUser();
+  const setUser = useUserStore((state) => state.setUser);
 
   let navigate = useNavigate();
 
@@ -36,13 +36,13 @@ export default function SigninForm() {
       const accessToken = Cookies.get("accessToken");
       const userToken = jwtDecode(accessToken);
       console.log("userToken access in signup page", userToken);
-      // setUser({
-      //   userId: userToken.id,
-      //   userEmail: userToken.email,
-      //   userFirstName: userToken.firstName,
-      //   userLastName: userToken.lastName,
-      //   userAvatarUrl: userToken.avatarUrl,
-      // });
+      setUser({
+        userId: userToken.id,
+        userEmail: userToken.email,
+        userFirstName: userToken.firstName,
+        userLastName: userToken.lastName,
+        userAvatarUrl: userToken.avatarUrl,
+      });
       navigate("/");
     },
   });

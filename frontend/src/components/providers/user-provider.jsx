@@ -1,21 +1,14 @@
-import React, { createContext, useState, useEffect, useContext } from "react";
+import { useEffect } from "react";
 import Cookies from "js-cookie";
 import { jwtDecode } from "jwt-decode";
+import { useUserStore } from "@/store";
 
-const UserContext = createContext({
-  user: null,
-  setUser: () => {}, // swapped later
-});
-
-export function UserProvider({ children }) {
-  const [user, setUserState] = useState(null);
-
-  const setUser = (userData) => {
-    setUserState(userData);
-  };
+export default function UserProvider({ children }) {
+  const setUser = useUserStore((state) => state.setUser);
+  const resetUserData = useUserStore((state) => state.resetUserData);
 
   useEffect(() => {
-    console.log("inside use effect of user provider (Context API)");
+    console.log("inside use effect of user provider (Zustand)");
     const accessToken = Cookies.get("accessToken");
     console.log("access token from cookies:", accessToken);
 
@@ -24,7 +17,7 @@ export function UserProvider({ children }) {
         const userPayload = jwtDecode(accessToken);
         console.log("user payload:", userPayload);
 
-        // Set the user state based on the decoded token
+        // Safely set user if payload is valid
         // setUser({
         //   userId: userPayload.id,
         //   userEmail: userPayload.email,
@@ -35,28 +28,12 @@ export function UserProvider({ children }) {
       } catch (error) {
         console.error("Failed to decode access token:", error);
         Cookies.remove("accessToken");
-        setUser(null); // Clear user state
+        resetUserData();
       }
+    } else {
+      resetUserData();
     }
-  }, []);
+  }, [setUser, resetUserData]);
 
-  const contextValue = {
-    user,
-    setUser,
-  };
-
-  return (
-    <UserContext.Provider value={contextValue}>{children}</UserContext.Provider>
-  );
-}
-
-export function useUser() {
-  // Export the hook
-  const context = useContext(UserContext);
-
-  if (context === undefined) {
-    throw new Error("useUser must be used within a UserProvider");
-  }
-
-  return context; // Returns { user, setUser }
+  return <>{children}</>;
 }

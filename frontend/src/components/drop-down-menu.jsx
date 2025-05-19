@@ -9,11 +9,10 @@ import {
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { UserPen } from "lucide-react";
 import { NavbarButton } from "./ui/resizable-navbar";
-import { useUser } from "./providers/user-provider";
+import { useUserStore } from "@/store";
 
 export default function DropDownMenu() {
-  const { user } = useUser();
-  const userAvatarUrl = user.userAvatarUrl;
+  const userAvatarUrl = useUserStore((state) => state.userAvatarUrl);
   return (
     <div className="dropdown-menu">
       <DropDownMenu>
