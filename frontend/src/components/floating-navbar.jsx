@@ -1,6 +1,4 @@
 // import { Link } from "react-router-dom";
-import { useContext } from "react";
-
 import {
   Navbar,
   NavBody,
@@ -13,7 +11,10 @@ import {
   MobileNavMenu,
 } from "@/components/ui/resizable-navbar";
 import { useState } from "react";
+import DropDownMenu from "./drop-down-menu";
 import { Link, Outlet } from "react-router";
+import { useEffect } from "react";
+import { useUserStore } from "@/store";
 
 export function NavbarFloating() {
   const navItems = [
@@ -78,13 +79,6 @@ export function NavbarFloating() {
                 className="w-full"
               >
                 Login
-              </NavbarButton>
-              <NavbarButton
-                onClick={() => setIsMobileMenuOpen(false)}
-                variant="primary"
-                className="w-full"
-              >
-                Book a call
               </NavbarButton>
             </div>
           </MobileNavMenu>

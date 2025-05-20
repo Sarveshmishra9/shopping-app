@@ -21,9 +21,13 @@ const ProductSchema = new mongoose.Schema(
     categories: {
       type: String,
     },
-    
+
     subCategories: {
+<<<<<<< HEAD
       type:[String],
+=======
+      type: [String],
+>>>>>>> upstream/main
     },
     gender: {
       type: [String],
@@ -46,10 +50,10 @@ const ProductSchema = new mongoose.Schema(
 
     isAdmin: {
       type: Boolean,
-      default:false
+      default: false,
     },
   },
-  { timestamps: true }
+  { timestamps: true },
 );
 
 module.exports = mongoose.model("Product", ProductSchema);
