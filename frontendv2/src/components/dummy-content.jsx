@@ -1,5 +1,5 @@
 export const DummyContent = () => {
-  return (
+  return ( 
     <div className="container mx-auto p-8 pt-24">
       <h1 className="mb-4 text-center text-3xl font-bold">
         dummy content for the hero page
