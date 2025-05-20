@@ -6,7 +6,7 @@ import {
   IconSettings,
   IconUserBolt,
 } from "@tabler/icons-react";
-import { Outlet } from "react-router";
+import { Outlet } from "@tanstack/react-router";
 import { cn } from "@/lib/utils";
 import CategoryFilterPicker from "./category-filter-picker";
 import { AlignJustify, IndianRupee, Shirt, SwatchBook } from "lucide-react";

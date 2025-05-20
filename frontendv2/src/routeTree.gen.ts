@@ -11,37 +11,239 @@
 // Import Routes
 
 import { Route as rootRoute } from './routes/__root'
+import { Route as CategoryRouteImport } from './routes/category/route'
+import { Route as AuthRouteImport } from './routes/auth/route'
+import { Route as IndexImport } from './routes/index'
+import { Route as CategoryWomenImport } from './routes/category/women'
+import { Route as CategoryMenImport } from './routes/category/men'
+import { Route as CategoryKidsImport } from './routes/category/kids'
+import { Route as AuthRegisterImport } from './routes/auth/register'
+import { Route as AuthLoginImport } from './routes/auth/login'
 
 // Create/Update Routes
+
+const CategoryRouteRoute = CategoryRouteImport.update({
+  id: '/category',
+  path: '/category',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const AuthRouteRoute = AuthRouteImport.update({
+  id: '/auth',
+  path: '/auth',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const IndexRoute = IndexImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const CategoryWomenRoute = CategoryWomenImport.update({
+  id: '/women',
+  path: '/women',
+  getParentRoute: () => CategoryRouteRoute,
+} as any)
+
+const CategoryMenRoute = CategoryMenImport.update({
+  id: '/men',
+  path: '/men',
+  getParentRoute: () => CategoryRouteRoute,
+} as any)
+
+const CategoryKidsRoute = CategoryKidsImport.update({
+  id: '/kids',
+  path: '/kids',
+  getParentRoute: () => CategoryRouteRoute,
+} as any)
+
+const AuthRegisterRoute = AuthRegisterImport.update({
+  id: '/register',
+  path: '/register',
+  getParentRoute: () => AuthRouteRoute,
+} as any)
+
+const AuthLoginRoute = AuthLoginImport.update({
+  id: '/login',
+  path: '/login',
+  getParentRoute: () => AuthRouteRoute,
+} as any)
 
 // Populate the FileRoutesByPath interface
 
 declare module '@tanstack/react-router' {
-  interface FileRoutesByPath {}
+  interface FileRoutesByPath {
+    '/': {
+      id: '/'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof IndexImport
+      parentRoute: typeof rootRoute
+    }
+    '/auth': {
+      id: '/auth'
+      path: '/auth'
+      fullPath: '/auth'
+      preLoaderRoute: typeof AuthRouteImport
+      parentRoute: typeof rootRoute
+    }
+    '/category': {
+      id: '/category'
+      path: '/category'
+      fullPath: '/category'
+      preLoaderRoute: typeof CategoryRouteImport
+      parentRoute: typeof rootRoute
+    }
+    '/auth/login': {
+      id: '/auth/login'
+      path: '/login'
+      fullPath: '/auth/login'
+      preLoaderRoute: typeof AuthLoginImport
+      parentRoute: typeof AuthRouteImport
+    }
+    '/auth/register': {
+      id: '/auth/register'
+      path: '/register'
+      fullPath: '/auth/register'
+      preLoaderRoute: typeof AuthRegisterImport
+      parentRoute: typeof AuthRouteImport
+    }
+    '/category/kids': {
+      id: '/category/kids'
+      path: '/kids'
+      fullPath: '/category/kids'
+      preLoaderRoute: typeof CategoryKidsImport
+      parentRoute: typeof CategoryRouteImport
+    }
+    '/category/men': {
+      id: '/category/men'
+      path: '/men'
+      fullPath: '/category/men'
+      preLoaderRoute: typeof CategoryMenImport
+      parentRoute: typeof CategoryRouteImport
+    }
+    '/category/women': {
+      id: '/category/women'
+      path: '/women'
+      fullPath: '/category/women'
+      preLoaderRoute: typeof CategoryWomenImport
+      parentRoute: typeof CategoryRouteImport
+    }
+  }
 }
 
 // Create and export the route tree
 
-export interface FileRoutesByFullPath {}
+interface AuthRouteRouteChildren {
+  AuthLoginRoute: typeof AuthLoginRoute
+  AuthRegisterRoute: typeof AuthRegisterRoute
+}
 
-export interface FileRoutesByTo {}
+const AuthRouteRouteChildren: AuthRouteRouteChildren = {
+  AuthLoginRoute: AuthLoginRoute,
+  AuthRegisterRoute: AuthRegisterRoute,
+}
+
+const AuthRouteRouteWithChildren = AuthRouteRoute._addFileChildren(
+  AuthRouteRouteChildren,
+)
+
+interface CategoryRouteRouteChildren {
+  CategoryKidsRoute: typeof CategoryKidsRoute
+  CategoryMenRoute: typeof CategoryMenRoute
+  CategoryWomenRoute: typeof CategoryWomenRoute
+}
+
+const CategoryRouteRouteChildren: CategoryRouteRouteChildren = {
+  CategoryKidsRoute: CategoryKidsRoute,
+  CategoryMenRoute: CategoryMenRoute,
+  CategoryWomenRoute: CategoryWomenRoute,
+}
+
+const CategoryRouteRouteWithChildren = CategoryRouteRoute._addFileChildren(
+  CategoryRouteRouteChildren,
+)
+
+export interface FileRoutesByFullPath {
+  '/': typeof IndexRoute
+  '/auth': typeof AuthRouteRouteWithChildren
+  '/category': typeof CategoryRouteRouteWithChildren
+  '/auth/login': typeof AuthLoginRoute
+  '/auth/register': typeof AuthRegisterRoute
+  '/category/kids': typeof CategoryKidsRoute
+  '/category/men': typeof CategoryMenRoute
+  '/category/women': typeof CategoryWomenRoute
+}
+
+export interface FileRoutesByTo {
+  '/': typeof IndexRoute
+  '/auth': typeof AuthRouteRouteWithChildren
+  '/category': typeof CategoryRouteRouteWithChildren
+  '/auth/login': typeof AuthLoginRoute
+  '/auth/register': typeof AuthRegisterRoute
+  '/category/kids': typeof CategoryKidsRoute
+  '/category/men': typeof CategoryMenRoute
+  '/category/women': typeof CategoryWomenRoute
+}
 
 export interface FileRoutesById {
   __root__: typeof rootRoute
+  '/': typeof IndexRoute
+  '/auth': typeof AuthRouteRouteWithChildren
+  '/category': typeof CategoryRouteRouteWithChildren
+  '/auth/login': typeof AuthLoginRoute
+  '/auth/register': typeof AuthRegisterRoute
+  '/category/kids': typeof CategoryKidsRoute
+  '/category/men': typeof CategoryMenRoute
+  '/category/women': typeof CategoryWomenRoute
 }
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: never
+  fullPaths:
+    | '/'
+    | '/auth'
+    | '/category'
+    | '/auth/login'
+    | '/auth/register'
+    | '/category/kids'
+    | '/category/men'
+    | '/category/women'
   fileRoutesByTo: FileRoutesByTo
-  to: never
-  id: '__root__'
+  to:
+    | '/'
+    | '/auth'
+    | '/category'
+    | '/auth/login'
+    | '/auth/register'
+    | '/category/kids'
+    | '/category/men'
+    | '/category/women'
+  id:
+    | '__root__'
+    | '/'
+    | '/auth'
+    | '/category'
+    | '/auth/login'
+    | '/auth/register'
+    | '/category/kids'
+    | '/category/men'
+    | '/category/women'
   fileRoutesById: FileRoutesById
 }
 
-export interface RootRouteChildren {}
+export interface RootRouteChildren {
+  IndexRoute: typeof IndexRoute
+  AuthRouteRoute: typeof AuthRouteRouteWithChildren
+  CategoryRouteRoute: typeof CategoryRouteRouteWithChildren
+}
 
-const rootRouteChildren: RootRouteChildren = {}
+const rootRouteChildren: RootRouteChildren = {
+  IndexRoute: IndexRoute,
+  AuthRouteRoute: AuthRouteRouteWithChildren,
+  CategoryRouteRoute: CategoryRouteRouteWithChildren,
+}
 
 export const routeTree = rootRoute
   ._addFileChildren(rootRouteChildren)
@@ -52,7 +254,49 @@ export const routeTree = rootRoute
   "routes": {
     "__root__": {
       "filePath": "__root.jsx",
-      "children": []
+      "children": [
+        "/",
+        "/auth",
+        "/category"
+      ]
+    },
+    "/": {
+      "filePath": "index.jsx"
+    },
+    "/auth": {
+      "filePath": "auth/route.jsx",
+      "children": [
+        "/auth/login",
+        "/auth/register"
+      ]
+    },
+    "/category": {
+      "filePath": "category/route.jsx",
+      "children": [
+        "/category/kids",
+        "/category/men",
+        "/category/women"
+      ]
+    },
+    "/auth/login": {
+      "filePath": "auth/login.jsx",
+      "parent": "/auth"
+    },
+    "/auth/register": {
+      "filePath": "auth/register.jsx",
+      "parent": "/auth"
+    },
+    "/category/kids": {
+      "filePath": "category/kids.jsx",
+      "parent": "/category"
+    },
+    "/category/men": {
+      "filePath": "category/men.jsx",
+      "parent": "/category"
+    },
+    "/category/women": {
+      "filePath": "category/women.jsx",
+      "parent": "/category"
     }
   }
 }

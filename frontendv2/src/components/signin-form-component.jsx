@@ -1,4 +1,14 @@
-export default function SigninForm() {
+import { Link } from "@tanstack/react-router";
+import { Label } from "./ui/label";
+import { Input } from "./ui/input";
+import { useState } from "react";
+import { Button } from "./ui/button";
+import { cn } from "@/lib/utils";
+
+export default function SigninFormComponent() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log("Form submitted");
@@ -45,7 +55,11 @@ export default function SigninForm() {
         <div className="my-8 h-[1px] w-full bg-gradient-to-r from-transparent via-neutral-300 to-transparent dark:via-neutral-700" />
 
         <div className="flex items-center justify-center">
-          <Button variant="link">don't have an account ? register here.</Button>
+          <Link to={"/auth/register"}>
+            <Button variant="link">
+              don't have an account ? register here.
+            </Button>
+          </Link>
         </div>
       </form>
     </div>

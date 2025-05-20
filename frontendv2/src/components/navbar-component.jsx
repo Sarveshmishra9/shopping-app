@@ -1,27 +1,96 @@
-import { Target } from "lucide-react";
-import { Button } from "./ui/button";
+import {
+  Navbar,
+  NavBody,
+  NavItems,
+  MobileNav,
+  NavbarButton,
+  MobileNavHeader,
+  MobileNavToggle,
+  MobileNavMenu,
+  NavbarLogo,
+} from "@/components/ui/resizable-navbar";
+import { useState } from "react";
+import { Outlet } from "@tanstack/react-router";
+import { Link } from "@tanstack/react-router";
 
-export default function Navbar() {
+export function NavbarComponent() {
+  const navItems = [
+    {
+      name: "Men",
+      link: "/category/men",
+    },
+    {
+      name: "Women",
+      link: "/category/women",
+    },
+    {
+      name: "Kids",
+      link: "/category/kids",
+    },
+  ];
+
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
   return (
-    <div className="navbar">
-      <div className="navbar-start">
-        <Logo></Logo>
-      </div>
-      <div className="navbar-links"></div>
-      <div className="navbar-end"></div>
+    <div className="relative w-full">
+      <Navbar>
+        {/* Desktop Navigation */}
+        <NavBody>
+          <NavbarLogo />
+          <NavItems items={navItems} />
+          <div className="flex items-center gap-4">
+            <Link to="/auth/login">
+              <NavbarButton variant="primary">Login</NavbarButton>
+            </Link>
+          </div>
+        </NavBody>
+
+        {/* Mobile Navigation */}
+        <MobileNav>
+          <MobileNavHeader>
+            <Link to="/">
+              <NavbarLogo />
+            </Link>
+            <MobileNavToggle
+              isOpen={isMobileMenuOpen}
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            />
+          </MobileNavHeader>
+
+          <MobileNavMenu
+            isOpen={isMobileMenuOpen}
+            onClose={() => setIsMobileMenuOpen(false)}
+          >
+            {navItems.map((item, idx) => (
+              <a
+                key={`mobile-link-${idx}`}
+                href={item.link}
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="relative text-neutral-600 dark:text-neutral-300"
+              >
+                <span className="block">{item.name}</span>
+              </a>
+            ))}
+            <div className="flex w-full flex-col gap-4">
+              <NavbarButton
+                onClick={() => setIsMobileMenuOpen(false)}
+                variant="primary"
+                className="w-full"
+              >
+                Login
+              </NavbarButton>
+              <NavbarButton
+                onClick={() => setIsMobileMenuOpen(false)}
+                variant="primary"
+                className="w-full"
+              >
+                Book a call
+              </NavbarButton>
+            </div>
+          </MobileNavMenu>
+        </MobileNav>
+      </Navbar>
+      <Outlet />
     </div>
   );
 }
-
-const NavbarLink = ({ children, to_path }) => {
-  return <Button className="navbar-link"></Button>;
-};
-
-const Logo = () => {
-  return (
-    <div className="flex items-center">
-      <Target></Target>
-      <span className="text-xl font-bold">HeroFit</span>
-    </div>
-  );
-};

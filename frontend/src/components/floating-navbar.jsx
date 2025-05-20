@@ -1,5 +1,4 @@
 // import { Link } from "react-router-dom";
-import { useContext } from "react";
 import {
   Navbar,
   NavBody,
@@ -35,9 +34,6 @@ export function NavbarFloating() {
 
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  const userId = useUserStore((state) => state.userId);
-  console.log("the user id from the floating bar is", userId);
-
   return (
     <div className="relative">
       <Navbar>
@@ -46,13 +42,9 @@ export function NavbarFloating() {
           <NavbarLogo />
           <NavItems items={navItems} />
           <div className="flex items-center gap-4">
-            {userId ? (
-              <DropDownMenu />
-            ) : (
-              <Link to="/auth/login">
-                <NavbarButton variant="primary">Login</NavbarButton>
-              </Link>
-            )}
+            <Link to="/auth/login">
+              <NavbarButton variant="primary">Login</NavbarButton>
+            </Link>
           </div>
         </NavBody>
 

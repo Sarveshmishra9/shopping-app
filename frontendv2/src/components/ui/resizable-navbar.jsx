@@ -1,14 +1,13 @@
-"use client";
 import { cn } from "@/lib/utils";
-import { IconMenu2, IconX } from "@tabler/icons-react";
+import { Menu, Target, X } from "lucide-react";
 import {
-  AnimatePresence,
   motion,
-  useMotionValueEvent,
+  AnimatePresence,
   useScroll,
+  useMotionValueEvent,
 } from "motion/react";
+import { Link } from "@tanstack/react-router";
 import React, { useRef, useState } from "react";
-import { Link } from "react-router";
 
 export const Navbar = ({ children, className }) => {
   const ref = useRef(null);
@@ -168,9 +167,9 @@ export const MobileNavMenu = ({ children, className, isOpen, onClose }) => {
 
 export const MobileNavToggle = ({ isOpen, onClick }) => {
   return isOpen ? (
-    <IconX className="text-black dark:text-white" onClick={onClick} />
+    <X className="text-black dark:text-white" onClick={onClick} />
   ) : (
-    <IconMenu2 className="text-black dark:text-white" onClick={onClick} />
+    <Menu className="text-black dark:text-white" onClick={onClick} />
   );
 };
 
@@ -178,15 +177,10 @@ export const NavbarLogo = () => {
   return (
     <Link
       to="/"
-      className="relative z-20 mr-4 flex items-center space-x-2 px-2 py-1 text-sm font-normal text-black"
+      className="relative z-20 mr-4 flex items-center space-x-2 px-2 py-1 font-bold text-lg"
     >
-      <img
-        src="https://assets.aceternity.com/logo-dark.png"
-        alt="logo"
-        width={30}
-        height={30}
-      />
-      <span className="font-medium text-black dark:text-white">HeroFit</span>
+      <Target className="" />
+      <span className="text-black font-bold dark:text-white">HeroFit</span>
     </Link>
   );
 };

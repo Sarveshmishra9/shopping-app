@@ -1,9 +1,7 @@
-"use client";
-
 import React from "react";
 import { CardBody, CardContainer, CardItem } from "@/components/ui/3d-card";
 import { CircleArrowRight } from "lucide-react";
-import { Link } from "react-router";
+import { Link } from "@tanstack/react-router";
 
 export function ThreeDCard({
   id,
